@@ -1,0 +1,22 @@
+plugins {
+    id 'application'
+}
+
+apply plugin: 'java'
+
+application {
+    mainClassName = "edu.byu.shorty.dev.read_back.LUT_read_back"    
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+
+dependencies {
+    compile files('../third_party/rapidwright/build/libs/rapidwright.jar')
+}
