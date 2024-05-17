@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'java'
 
 application {
-    mainClassName = "edu.byu.shorty.dev.read_back.LUT_read_back"    
+    mainClassName = "edu.byu.shorty.examples.ShortsXC7A35T"    
 }
 
 sourceSets {
@@ -16,7 +16,9 @@ sourceSets {
     }
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
-    compile files('../third_party/rapidwright/build/libs/rapidwright.jar')
+    compile files('RapidWright/jars/*.jar')
 }

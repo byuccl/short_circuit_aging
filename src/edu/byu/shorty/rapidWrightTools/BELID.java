@@ -1,4 +1,4 @@
-package edu.byu.shorty.rapidwrighttools;
+package edu.byu.shorty.rapidWrightTools;
 
 /**
  * A enumeration for all of the prefixes a shortable BEL can have. These refer to the first Letter of the BEL name,

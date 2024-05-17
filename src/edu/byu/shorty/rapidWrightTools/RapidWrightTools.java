@@ -1,4 +1,4 @@
-package edu.byu.shorty.rapidwrighttools;
+package edu.byu.shorty.rapidWrightTools;
 
 import com.xilinx.rapidwright.design.*;
 import com.xilinx.rapidwright.design.tools.LUTTools;
@@ -8,8 +8,6 @@ import com.xilinx.rapidwright.edif.EDIFTools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.SortedSet;
 import java.util.stream.Stream;
 
 import static edu.byu.shorty.tcl.ExecuteTclScript.executeScript;
@@ -346,11 +344,11 @@ public class RapidWrightTools
     /**
      * Runs a tcl script that runs route_design on a checkpoint
      * @param fileName name of the dcp file
-     * @param expName experiment name of the dcp file (used to locate the dcp file)
+     * @param checkpointDir path to the directory to read and write the checkpoint
      */
-    public static void routeCheckpoint(String fileName, String expName)
+    public static void routeCheckpoint(String fileName, String checkpointDir)
     {
-        executeScript("route_checkpoint.tcl", fileName, expName);
+        executeScript("route_checkpoint.tcl", fileName, checkpointDir);
     }
 
     /**
