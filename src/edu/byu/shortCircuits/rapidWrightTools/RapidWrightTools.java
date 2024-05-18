@@ -1,4 +1,4 @@
-package edu.byu.shorty.rapidwrighttools;
+package edu.byu.shortCircuits.rapidWrightTools;
 
 import com.xilinx.rapidwright.design.*;
 import com.xilinx.rapidwright.design.tools.LUTTools;
@@ -8,11 +8,7 @@ import com.xilinx.rapidwright.edif.EDIFTools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.SortedSet;
 import java.util.stream.Stream;
-
-import static edu.byu.shorty.tcl.ExecuteTclScript.executeScript;
 
 /**
  * Convenient methods for RapidWright that may be helpful when creating designs that have RO or shorts
@@ -341,16 +337,6 @@ public class RapidWrightTools
         }
 
         return currentLuts;
-    }
-
-    /**
-     * Runs a tcl script that runs route_design on a checkpoint
-     * @param fileName name of the dcp file
-     * @param expName experiment name of the dcp file (used to locate the dcp file)
-     */
-    public static void routeCheckpoint(String fileName, String expName)
-    {
-        executeScript("route_checkpoint.tcl", fileName, expName);
     }
 
     /**

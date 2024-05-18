@@ -1,12 +1,6 @@
-plugins {
-    id 'application'
-}
-
 apply plugin: 'java'
-
-application {
-    mainClassName = "edu.byu.shorty.dev.read_back.LUT_read_back"    
-}
+sourceCompatibility = 8
+targetCompatibility = 8
 
 sourceSets {
     main {
@@ -16,7 +10,27 @@ sourceSets {
     }
 }
 
+dependencies { 
+    implementation project(':RapidWright')
+}
 
-dependencies {
-    compile files('../third_party/rapidwright/build/libs/rapidwright.jar')
+repositories {
+    if (project.hasProperty('additionalMavenRepo')) {
+      project.logger.lifecycle('Adding Maven Repository at '+additionalMavenRepo)
+      exclusiveContent {
+        forRepository {
+          maven {
+            url additionalMavenRepo
+          }
+        }
+        filter {
+          includeModule("com.xilinx.rapidwright", "rapidwright-api-lib")
+        }
+      }
+    }
+    if (project.hasProperty('useMavenLocal') && useMavenLocal == "True") {
+       project.logger.lifecycle('Using Maven Local Repository')
+       mavenLocal()
+    }
+    mavenCentral()
 }

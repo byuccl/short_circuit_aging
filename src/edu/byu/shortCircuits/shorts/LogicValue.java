@@ -1,18 +1,18 @@
-package edu.byu.shorty.rapidwrighttools;
+package edu.byu.shortCircuits.shorts;
 
 /*
  * Indicates the a logic level of either high or low.
  */
-public enum BELConfig
+public enum LogicValue
 {
     LOW("0"),
-    HIGH("1"),
-    INV("!I0"),
-    BUF("I0");
+    HIGH("1");
+//    INV("!I0"),
+//    BUF("I0");
 
     private final String config;
 
-    BELConfig(String config)
+    LogicValue(String config)
     {
         this.config = config;
     }
