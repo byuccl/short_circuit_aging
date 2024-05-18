@@ -2,5 +2,9 @@ build:
 	git submodule init
 	git submodule update
 
-	cd RapidWright; ./gradlew compileJava
+	./gradlew build
+	cp build/libs/*.jar .
+
+clean:
+	./gradlew clean
 

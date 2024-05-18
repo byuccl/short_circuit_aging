@@ -1,0 +1,9 @@
+rootProject.name = 'short_circuit_aging'
+include 'RapidWright'
+gradle.startParameter.excludedTaskNames += [
+    "testJava", 
+    "testPython", 
+    "compileTestJava",
+    "javadoc", 
+    "compileTestFixturesJava"
+    ]

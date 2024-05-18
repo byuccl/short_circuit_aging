@@ -1,13 +1,13 @@
-package edu.byu.shorty.examples.ShortsXC7A35T;
+package edu.byu.shortCircuits.examples.ShortsXC7A35T;
 
-import edu.byu.shorty.shorts.ShortedDesign;
+import edu.byu.shortCircuits.shorts.ShortedDesign;
 
 import com.xilinx.rapidwright.device.Site;
 import com.xilinx.rapidwright.design.Design;
 
 import java.io.File;
 
-public class SsXC7A35T
+public class ShortsXC7A35T
 {
     private final static String EXPERIMENT_NAME = "shorts_xc7a35t";
     private final static String FILE_NAME = EXPERIMENT_NAME + ".dcp";
@@ -32,13 +32,13 @@ public class SsXC7A35T
             for (int x = X_MIN; x < Y_MIN; x+=2) {
                 Site site = d.getDevice().getSite(String.format("SLICE_X%dY%d", x, y));
                 if (site != null)                    
-                    sd.placeShortedTile(x, y);
+                    sd.placeShortedSite(x, y); //place shorts on a logic site
             }
         }
+
+        sd.routeShorts(SHORT_CIRCUIT_DENSITY);
+
+        new File(CHECKPOINT_DIR).mkdir();
+        d.writeCheckpoint(CHECKPOINT_DIR + "/" + FILE_NAME);
     }
-
-    sd2.routeShorts(SHORT_CIRCUIT_DENSITY);
-
-    new File(CHECKPOINT_DIR).mkdir();
-    d.writeCheckpoint(CHECKPOINT_DIR + "/" + FILE_NAME);
 }

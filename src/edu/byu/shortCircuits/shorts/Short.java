@@ -1,4 +1,4 @@
-package edu.byu.shorty.shorts;
+package edu.byu.shortCircuits.shorts;
 
 import com.xilinx.rapidwright.design.Cell;
 import com.xilinx.rapidwright.design.Design;

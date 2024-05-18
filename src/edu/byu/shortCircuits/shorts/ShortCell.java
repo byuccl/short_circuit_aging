@@ -1,8 +1,8 @@
-package edu.byu.shorty.shorts;
+package edu.byu.shortCircuits.shorts;
 
 import com.xilinx.rapidwright.design.*;
 import com.xilinx.rapidwright.device.*;
-import edu.byu.shorty.rapidWrightTools.BELID;
+import edu.byu.shortCircuits.rapidWrightTools.BELID;
 
 /**
  * This class contains everything needed to short two BELs together. It is made

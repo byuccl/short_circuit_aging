@@ -1,4 +1,4 @@
-package edu.byu.shorty.shorts;
+package edu.byu.shortCircuits.shorts;
 
 /*
  * Indicates the a logic level of either high or low.

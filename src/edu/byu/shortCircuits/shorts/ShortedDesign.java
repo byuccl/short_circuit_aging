@@ -1,15 +1,15 @@
-package edu.byu.shorty.shorts;
+package edu.byu.shortCircuits.shorts;
 
 import com.xilinx.rapidwright.design.Cell;
 import com.xilinx.rapidwright.design.Design;
 import com.xilinx.rapidwright.design.Net;
 import com.xilinx.rapidwright.device.*;
-import edu.byu.shorty.rapidWrightTools.BELID;
-import edu.byu.shorty.rapidWrightTools.RapidWrightTools;
+import edu.byu.shortCircuits.rapidWrightTools.BELID;
+import edu.byu.shortCircuits.rapidWrightTools.RapidWrightTools;
 
 import java.util.*;
 
-import static edu.byu.shorty.rapidWrightTools.RapidWrightTools.countLut6;
+import static edu.byu.shortCircuits.rapidWrightTools.RapidWrightTools.countLut6;
 
 /*
  * This class contains tools to find and create shorts. It also contains a list of all shorts created through the
