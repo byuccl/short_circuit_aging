@@ -10,7 +10,7 @@ If the build process fails, try installing jdk-8 and setting the JAVA_HOME varia
 
 ## Creating a bitstream containing short circuits
 
-The API provided can be used alongside RapidWright to create check a Vivado checkpoint file that contains short circuits (see [this example](./src/edu/byu/shorty/examples/ShortsXC7A35T.java) to see how). Once the checkpoint has been generated, it can be opened in Vivado. 
+The API provided can be used alongside RapidWright to create check a Vivado checkpoint file that contains short circuits (see [this example](src/edu/byu/shortCircuits/examples/ShortsXC7A35T.java) to see how). Once the checkpoint has been generated, it can be opened in Vivado. 
 
 To generate a bitstream from the short circuit checkpoint, run the following TCL commands: 
 
