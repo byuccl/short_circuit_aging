@@ -1,4 +1,4 @@
-package edu.byu.shortCircuits.examples.ShortsXC7A35T;
+package edu.byu.shortCircuits.examples.SimpleShortDesign;
 
 import edu.byu.shortCircuits.shorts.ShortedDesign;
 
@@ -7,7 +7,10 @@ import com.xilinx.rapidwright.design.Design;
 
 import java.io.File;
 
-public class ShortsXC7A35T
+/**
+ * 
+ */
+public class ManualShortedDesign
 {
     private final static String EXPERIMENT_NAME = "shorts_xc7a35t";
     private final static String FILE_NAME = EXPERIMENT_NAME + ".dcp";
@@ -36,7 +39,8 @@ public class ShortsXC7A35T
             }
         }
 
-        sd.routeShorts(SHORT_CIRCUIT_DENSITY);
+        // Must call this to route shorts after they have all been placed.
+        sd.routeShorts(SHORT_CIRCUIT_DENSITY); 
 
         new File(CHECKPOINT_DIR).mkdir();
         d.writeCheckpoint(CHECKPOINT_DIR + "/" + FILE_NAME);

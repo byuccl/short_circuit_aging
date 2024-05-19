@@ -4,13 +4,15 @@ This repository contains a RapidWright-based library that can be used to create 
 These short circuits can be programmed onto the FPGA to achieve a unique non-uniform aging effect. For more information on short circuit aging, see [our paper](https://ccl.byu.edu/assets/cook_trets22.pdf).
 
 ## Setup
-To build the library, simply run `make`. This should create a file called short_circuit_aging.jar, that can be used as a dependency in your own java project.
+To build the library, simply run `make`. This should create a file called short_circuit_aging.jar, that can be used as a dependency in your own Java project.
 
-If the build process fails, try installing jdk-8 and setting the JAVA_HOME variable to point to jdk-8 (e.g. `export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/`).
+If the build process fails, try installing JDK-8 and setting the JAVA_HOME variable to point to JDK-8 (e.g. `export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/`).
+
+If you are using IntelliJ IDEA, you could also directly import this repository--along with RapidWright--as a module with existing sources. You would then have to add RapidWright as a dependency for this module and add both RapidWright and this module as a dependency for your own project. This would give you access to the source code in this project during debugging.
 
 ## Creating a bitstream containing short circuits
 
-The API provided can be used alongside RapidWright to create check a Vivado checkpoint file that contains short circuits (see [this example](src/edu/byu/shortCircuits/examples/ShortsXC7A35T.java) to see how). Once the checkpoint has been generated, it can be opened in Vivado. 
+The API provided can be used alongside RapidWright to create a Vivado checkpoint file that contains short circuits (see [this example](src/edu/byu/shortCircuits/examples/SimpleShortedDesign.java) to see how). Once the checkpoint has been generated, it can be opened in Vivado. 
 
 To generate a bitstream from the short circuit checkpoint, run the following TCL commands: 
 
