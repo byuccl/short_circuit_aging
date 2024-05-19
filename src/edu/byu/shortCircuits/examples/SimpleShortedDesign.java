@@ -1,20 +1,19 @@
-package edu.byu.shortCircuits.examples.SimpleShortDesign;
+package edu.byu.shortCircuits.examples.SimpleShortedDesign;
 
 import edu.byu.shortCircuits.shorts.ShortedDesign;
 
-import com.xilinx.rapidwright.device.Site;
 import com.xilinx.rapidwright.design.Design;
 
 import java.io.File;
 
 /**
- * 
+ * A simple example on how to create a region of short circuits on a 7 Series FPGA.
  */
-public class ManualShortedDesign
+public class SimpleShortedDesign
 {
-    private final static String EXPERIMENT_NAME = "shorts_xc7a35t";
+    private final static String EXPERIMENT_NAME = "shorts";
     private final static String FILE_NAME = EXPERIMENT_NAME + ".dcp";
-    private final static String CHECKPOINT_DIR = "checkpoints/" + EXPERIMENT_NAME;
+    private final static String CHECKPOINT_DIR = "checkpoints";
 
     private final static String PART = "xc7a35ticsg324-1L";
 
@@ -30,17 +29,9 @@ public class ManualShortedDesign
         Design d = new Design("Shorts", PART);
         ShortedDesign sd = new ShortedDesign(d);
 
-        // place short circuits on the top half of the FPGA.
-        for (int y = Y_MAX; y >= Y_MIN; y--) {
-            for (int x = X_MIN; x < Y_MIN; x+=2) {
-                Site site = d.getDevice().getSite(String.format("SLICE_X%dY%d", x, y));
-                if (site != null)                    
-                    sd.placeShortedSite(x, y); //place shorts on a logic site
-            }
-        }
-
-        // Must call this to route shorts after they have all been placed.
-        sd.routeShorts(SHORT_CIRCUIT_DENSITY); 
+        // Place short circuits on the top half of the FPGA.
+        // The last argument designates how many shorts are created per LUT-FF pair.
+        sd.createShortedRegion(X_MIN, X_MAX, Y_MIN, Y_MAX, SHORT_CIRCUIT_DENSITY);
 
         new File(CHECKPOINT_DIR).mkdir();
         d.writeCheckpoint(CHECKPOINT_DIR + "/" + FILE_NAME);
