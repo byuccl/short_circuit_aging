@@ -254,10 +254,14 @@ public class ShortedDesign
         {
             for (int x = xMin; x <= xMax; x++)
             {
-                shorts.addAll(shortSite(x, y, numOfShorts));
-                lutCount+=4;
-                if (lutCount > (maxLuts-4))
-                    return shorts;
+                Site site = d.getDevice().getSite(String.format("SLICE_X%dY%d", x, y));
+                if (site != null)
+                {
+                    shorts.addAll(shortSite(x, y, numOfShorts));
+                    lutCount += 4;
+                    if (lutCount > (maxLuts - 4))
+                        return shorts;
+                }
 
             }
         }
